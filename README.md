@@ -2,7 +2,7 @@
 
 # Description:
 
-This API is built with **FastAPI** and uses state-of-the-art **TensorFlow pretrained models** to detect the occurrence of disaster from both **texts** and **images**. The notebooks containing the code for training these models can be found in the _notebooks folder_.
+This API is built with **FastAPI** and uses state-of-the-art models from _TensorFlow Hub_ to detect the occurrence of disaster from both _texts_ and _images_. The notebooks containing the code for training these models can be found in the _notebooks folder_.
 
 ## Deep Learning Models Used
 
@@ -12,17 +12,39 @@ This API is built with **FastAPI** and uses state-of-the-art **TensorFlow pretra
 | Efficientnet B3 | 3      | 95%      | NA       |
 | ResNet-50       | 3      | 94%      | NA       |
 
-# Routes:
+# Getting Started
+
+Setup a virtual environment and activate it
+
+```
+python -m venv your_env
+```
+
+Install all the dependencies from the **requirements.txt** file to your environment
+
+```
+pip install -r requirements.txt
+```
+
+To start your server, run the below command in the terminal
+
+```
+uvicorn main:app --reload
+```
+
+By default the server will start on port **8000** which can be accessed by opening **http://localhost:8000** on the browser
+
+# Routes
 
 ## /one_text/
 
 Method: POST
 
-### **Required:**
+### **Required**
 
 text=String
 
-### **Success Response:**
+### **Success Response**
 
 **Payload:** { text : "the car is arriving this evening!" }
 
@@ -40,11 +62,11 @@ text=String
 
 Method: POST
 
-### **Required:**
+### **Required**
 
 text=[String]
 
-### **Success Response:**
+### **Success Response**
 
 **Payload:** { texts : [ "the storm destroyed the buildings that were made of woods.", "the car is arriving this evening!" ] }
 
@@ -56,11 +78,11 @@ text=[String]
 
 Method: POST
 
-### **Required:**
+### **Required**
 
 file = image file
 
-### **Success Response:**
+### **Success Response**
 
 **payload:**
 
